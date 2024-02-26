@@ -242,6 +242,7 @@ main {
   margin-bottom: 55px;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
 }
 
 #search-section > h2 {
@@ -269,6 +270,6 @@ main {
 
 #recipes-section {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-  gap: 50px;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  gap: 90px;
 }
