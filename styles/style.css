@@ -191,7 +191,7 @@ header > .logo-title > img {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  gap: 40px;
   width: 66%;
 }
 
@@ -219,7 +219,7 @@ header > .logo-title > img {
 .header-title > .search-bar > .btnSearch {
   position: absolute;
   top: 11px;
-  right: -27px;
+  right: 10px;
   width: 52px;
   height: 52px;
   font-size: 28px;
@@ -227,4 +227,48 @@ header > .logo-title > img {
   color: white;
   border-radius: 10px;
   border: none;
+}
+
+/* Main */
+
+main {
+  background: #ededed;
+  padding: 21px 100px 200px;
+  height: 100%;
+}
+
+#search-section {
+  display: flex;
+  margin-bottom: 55px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#search-section > h2 {
+  font-family: "Anton";
+  font-size: 21px;
+  font-weight: 400;
+}
+
+.search-selectors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 65px;
+}
+
+.search-selectors > label {
+  display: none;
+}
+
+.search-selectors > select {
+  padding: 17px;
+  width: 185px;
+}
+
+/* Recipes Cards */
+
+#recipes-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 50px;
 }
