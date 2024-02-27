@@ -45,14 +45,12 @@ function recipesTemplate(recipe) {
       const ingredientDiv = document.createElement("div");
       ingredientDiv.className = "ingredient";
 
-      // Instanciation d'un nouvel objet Ingredient
       const ingredient = new Ingredient(
         ingredientData.ingredient,
         ingredientData.quantity,
         ingredientData.unit
       );
 
-      // Création des éléments HTML pour afficher les données de l'ingrédient
       const ingredientName = document.createElement("p");
       ingredientName.className = "ingredient-name";
       ingredientName.textContent = ingredient.ingredient;
@@ -68,14 +66,6 @@ function recipesTemplate(recipe) {
 
       ingredientsList.appendChild(ingredientDiv);
     });
-
-    // const ingredientName = document.createElement("p");
-    //
-    // ingredientName.textContent = "Lait de coco";
-
-    // const ingredientQuantity = document.createElement("p");
-    //
-    // ingredientQuantity.textContent = "400ml";
 
     recipeDiv.appendChild(recipeTitle);
     recipeDiv.appendChild(recipeSubtitle);
