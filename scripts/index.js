@@ -1,3 +1,4 @@
+// Initializing Recipe Objects from Recipe Data
 const recipesRecovery = recipes.map((recipeData) => {
   return new Recipe(
     recipeData.id,
@@ -12,6 +13,8 @@ const recipesRecovery = recipes.map((recipeData) => {
   );
 });
 
-console.log("------------------------");
-console.log(recipesRecovery);
-console.log("------------------------");
+// Display Recipes Cards
+recipesRecovery.forEach((recipe) => {
+  const recipeCardDom = recipesTemplate(recipe).getRecipeCardDom();
+  document.getElementById("recipes-section").appendChild(recipeCardDom);
+});
