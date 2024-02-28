@@ -1,6 +1,7 @@
 const ingredientsSelector = document.getElementById("ingredients");
 const applianceSelector = document.getElementById("appliance");
 const ustensilsSelector = document.getElementById("ustensils");
+
 const recipesElements = recipes.map((recipeData) => {
   return new Recipe(
     recipeData.id,
@@ -25,18 +26,22 @@ recipesElements.forEach((recipe) => {
       ingredientsData.unit
     );
 
+    const capitalizedIngredient =
+      ingredient.ingredient.charAt(0).toUpperCase() +
+      ingredient.ingredient.slice(1).toLowerCase();
+
     const ingredientToSelect = document.createElement("option");
-    ingredientToSelect.value = ingredient.ingredient;
-    ingredientToSelect.textContent = ingredient.ingredient;
+    ingredientToSelect.value = capitalizedIngredient;
+    ingredientToSelect.textContent = capitalizedIngredient;
 
     const existingOptions = ingredientsSelector.querySelectorAll(
-      `option[value="${ingredient.ingredient}"]`
+      `option[value="${capitalizedIngredient}"]`
     );
 
     let optionExists = false;
 
     existingOptions.forEach((option) => {
-      if (option.value === ingredient.ingredient) {
+      if (option.value === capitalizedIngredient) {
         optionExists = true;
         return;
       }
@@ -51,6 +56,7 @@ recipesElements.forEach((recipe) => {
 /* Appliance Selector */
 recipesElements.forEach((recipe) => {
   const appliance = recipe.appliance;
+
   const applianceToSelect = document.createElement("option");
   applianceToSelect.value = appliance;
   applianceToSelect.textContent = appliance;
@@ -88,6 +94,7 @@ recipesElements.forEach((recipe) => {
     const existingOptions = ustensilsSelector.querySelectorAll(
       `option[value="${capitalizedUstensil}"]`
     );
+
     let optionExists = false;
 
     existingOptions.forEach((option) => {
