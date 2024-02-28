@@ -51,6 +51,7 @@
           DU QUOTIDIEN, SIMPLES ET DÉLICIEUSES
         </p>
         <div class="search-bar">
+          <label for="inputField"> Recherche </label>
           <input
             id="inputField"
             type="text"
@@ -64,34 +65,37 @@
       </div>
     </header>
     <main id="main">
-      <section id="search-section">
-        <div class="search-selectors">
-          <label for="ingredients">Ingrédients</label>
-          <select
-            id="ingredients"
-            class="form-select form-select-lg"
-            aria-label="Large select example"
-          >
-            <option selected>Ingrédients</option>
-          </select>
-          <label for="appliance">Appareils</label>
-          <select
-            id="appliance"
-            class="form-select form-select-lg"
-            aria-label="Large select example"
-          >
-            <option selected>Appareils</option>
-          </select>
-          <label for="ustensils">Ustensiles</label>
-          <select
-            id="ustensils"
-            class="form-select form-select-lg"
-            aria-label="Large select example"
-          >
-            <option selected>Ustensiles</option>
-          </select>
+      <section id="advanced-search">
+        <div id="search-div">
+          <div class="search-selectors">
+            <label for="ingredients">Ingrédients</label>
+            <select
+              id="ingredients"
+              class="form-select form-select-lg"
+              aria-label="Large select example"
+            >
+              <option selected>Ingrédients</option>
+            </select>
+            <label for="appliance">Appareils</label>
+            <select
+              id="appliance"
+              class="form-select form-select-lg"
+              aria-label="Large select example"
+            >
+              <option selected>Appareils</option>
+            </select>
+            <label for="ustensils">Ustensiles</label>
+            <select
+              id="ustensils"
+              class="form-select form-select-lg"
+              aria-label="Large select example"
+            >
+              <option selected>Ustensiles</option>
+            </select>
+          </div>
+          <h2>1500 recettes</h2>
         </div>
-        <h2>1500 recettes</h2>
+        <div id="search-tags"></div>
       </section>
       <section id="recipes-section"></section>
     </main>

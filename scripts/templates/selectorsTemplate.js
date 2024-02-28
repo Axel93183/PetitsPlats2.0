@@ -109,3 +109,48 @@ recipesElements.forEach((recipe) => {
     }
   });
 });
+
+/* Search Tags */
+const searchDiv = document.getElementById("search-div");
+const searchSelectorsDiv = document.querySelector(".search-selectors");
+const searchTagsDiv = document.getElementById("search-tags");
+
+const selectElements = searchSelectorsDiv.querySelectorAll("select");
+
+selectElements.forEach((selectElement) => {
+  selectElement.addEventListener("change", function (event) {
+    const selectedOption = event.target.value;
+
+    let alreadyExists = false;
+
+    searchTagsDiv.querySelectorAll(".search-tag").forEach((tag) => {
+      if (tag.querySelector("p").textContent == selectedOption) {
+        alreadyExists = true;
+      }
+    });
+
+    if (!alreadyExists) {
+      const divTag = document.createElement("div");
+      divTag.className = "search-tag";
+
+      const textTag = document.createElement("p");
+      textTag.textContent = selectedOption;
+
+      const spanTag = document.createElement("span");
+      spanTag.textContent = "x";
+      spanTag.className = "close-tag";
+
+      spanTag.addEventListener("click", function () {
+        divTag.parentNode.removeChild(divTag);
+      });
+
+      divTag.appendChild(textTag);
+      divTag.appendChild(spanTag);
+
+      searchTagsDiv.appendChild(divTag);
+
+      searchDiv.style.margin = 0;
+      searchTagsDiv.style.display = "flex";
+    }
+  });
+});
