@@ -24,12 +24,12 @@
       crossorigin="anonymous"
     />
 
-    <script src="/scripts/datas/recipes.js" defer></script>
-    <script src="/scripts/models/ingredient.js" defer></script>
-    <script src="/scripts/models/recipe.js" defer></script>
-    <script src="/scripts/templates/recipesTemplate.js" defer></script>
-    <script src="/scripts/templates/selectorsTemplate.js" defer></script>
-    <script src="/scripts/index.js" defer></script>
+    <script src="scripts/datas/recipes.js" defer></script>
+    <script src="scripts/models/ingredient.js" defer></script>
+    <script src="scripts/models/recipe.js" defer></script>
+    <script src="scripts/templates/recipesTemplate.js" defer></script>
+    <script src="scripts/templates/selectorsTemplate.js" defer></script>
+    <script src="scripts/index.js" defer></script>
 
     <title>Les Petits Plats</title>
   </head>
@@ -52,9 +52,11 @@
         </p>
         <div class="search-bar">
           <input
+            id="inputField"
             type="text"
             placeholder="Rechercher une recette, un ingrédients, ..."
           />
+          <span id="clearIcon" class="clear-icon">X</span>
           <button class="btnSearch">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>

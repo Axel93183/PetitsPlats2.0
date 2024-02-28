@@ -214,6 +214,21 @@ header > .logo-title > img {
   font-size: 16px;
   border-radius: 10px;
   border: none;
+  color: #7a7a7a;
+}
+
+.header-title > .search-bar > .clear-icon {
+  position: absolute;
+  right: 75px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: none;
+  color: #7a7a7a;
+}
+
+.header-title > .search-bar > input.has-text + .clear-icon {
+  display: block;
 }
 
 .header-title > .search-bar > .btnSearch {
@@ -264,6 +279,7 @@ main {
 .search-selectors > select {
   padding: 17px;
   width: 185px;
+  font-size: 16px;
 }
 
 /* Recipes Cards */
