@@ -1,5 +1,5 @@
 const ingredientsSelector = document.getElementById("ingredients");
-const applianceSelector = document.getElementById("appliance");
+const applianceSelector = document.getElementById("appliances");
 const ustensilsSelector = document.getElementById("ustensils");
 
 const recipesElements = recipes.map((recipeData) => {
@@ -30,18 +30,13 @@ recipesElements.forEach((recipe) => {
       ingredient.ingredient.charAt(0).toUpperCase() +
       ingredient.ingredient.slice(1).toLowerCase();
 
-    const ingredientToSelect = document.createElement("option");
-    ingredientToSelect.value = capitalizedIngredient;
+    const ingredientToSelect = document.createElement("li");
     ingredientToSelect.textContent = capitalizedIngredient;
-
-    const existingOptions = ingredientsSelector.querySelectorAll(
-      `option[value="${capitalizedIngredient}"]`
-    );
-
+    const existingOptions = ingredientsSelector.querySelectorAll("li");
     let optionExists = false;
 
     existingOptions.forEach((option) => {
-      if (option.value === capitalizedIngredient) {
+      if (option.textContent === capitalizedIngredient) {
         optionExists = true;
         return;
       }
@@ -57,18 +52,15 @@ recipesElements.forEach((recipe) => {
 recipesElements.forEach((recipe) => {
   const appliance = recipe.appliance;
 
-  const applianceToSelect = document.createElement("option");
-  applianceToSelect.value = appliance;
+  const applianceToSelect = document.createElement("li");
   applianceToSelect.textContent = appliance;
 
-  const existingOptions = applianceSelector.querySelectorAll(
-    `option[value="${appliance}"`
-  );
+  const existingOptions = applianceSelector.querySelectorAll("li");
 
   let optionExists = false;
 
   existingOptions.forEach((option) => {
-    if (option.value === appliance) {
+    if (option.textContent === appliance) {
       optionExists = true;
       return;
     }
@@ -87,18 +79,16 @@ recipesElements.forEach((recipe) => {
     const capitalizedUstensil =
       ustensil.charAt(0).toUpperCase() + ustensil.slice(1);
 
-    const ustensilToSelect = document.createElement("option");
+    const ustensilToSelect = document.createElement("li");
     ustensilToSelect.value = capitalizedUstensil;
     ustensilToSelect.textContent = capitalizedUstensil;
 
-    const existingOptions = ustensilsSelector.querySelectorAll(
-      `option[value="${capitalizedUstensil}"]`
-    );
+    const existingOptions = ustensilsSelector.querySelectorAll("li");
 
     let optionExists = false;
 
     existingOptions.forEach((option) => {
-      if (option.value === capitalizedUstensil) {
+      if (option.textContent === capitalizedUstensil) {
         optionExists = true;
         return;
       }
@@ -115,11 +105,11 @@ const searchDiv = document.getElementById("search-div");
 const searchSelectorsDiv = document.querySelector(".search-selectors");
 const searchTagsDiv = document.getElementById("search-tags");
 
-const selectElements = searchSelectorsDiv.querySelectorAll("select");
+const selectElements = searchSelectorsDiv.querySelectorAll("ul");
 
 selectElements.forEach((selectElement) => {
-  selectElement.addEventListener("change", function (event) {
-    const selectedOption = event.target.value;
+  selectElement.addEventListener("click", function (event) {
+    const selectedOption = event.target.textContent;
 
     let alreadyExists = false;
 

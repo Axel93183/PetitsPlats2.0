@@ -68,30 +68,64 @@
       <section id="advanced-search">
         <div id="search-div">
           <div class="search-selectors">
-            <label for="ingredients">Ingrédients</label>
-            <select
-              id="ingredients"
-              class="form-select form-select-lg"
-              aria-label="Large select example"
-            >
-              <option selected>Ingrédients</option>
-            </select>
-            <label for="appliance">Appareils</label>
-            <select
-              id="appliance"
-              class="form-select form-select-lg"
-              aria-label="Large select example"
-            >
-              <option selected>Appareils</option>
-            </select>
-            <label for="ustensils">Ustensiles</label>
-            <select
-              id="ustensils"
-              class="form-select form-select-lg"
-              aria-label="Large select example"
-            >
-              <option selected>Ustensiles</option>
-            </select>
+            <div class="selector">
+              <div class="label-selector">
+                <label for="ingredients-choice">Ingrédients</label>
+                <i class="fa-solid fa-chevron-down" tabindex="0"></i>
+              </div>
+              <div class="searching-component">
+                <div class="input-search">
+                  <input id="ingredients-choice" type="text" />
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <label for="ingredients" id="label-ingredients-list"
+                  >Liste d'ingrédients</label
+                >
+                <ul
+                  id="ingredients"
+                  aria-label="Sélectionner vos ingrédients"
+                  size="6"
+                ></ul>
+              </div>
+            </div>
+            <div class="selector">
+              <div class="label-selector">
+                <label for="appliances-choice">Appareils</label>
+                <i class="fa-solid fa-chevron-down" tabindex="0"></i>
+              </div>
+              <div class="searching-component">
+                <div class="input-search">
+                  <input id="appliances-choice" type="text" />
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <label for="appliance" id="label-appliances-list"
+                  >Liste des appareils</label
+                >
+                <ul
+                  id="appliances"
+                  aria-label="Sélectionner vos appareils"
+                ></ul>
+              </div>
+            </div>
+            <div class="selector">
+              <div class="label-selector">
+                <label for="ustensils-choice">Ustensiles</label>
+                <i class="fa-solid fa-chevron-down" tabindex="0"></i>
+              </div>
+              <div class="searching-component">
+                <div class="input-search">
+                  <input id="ustensils-choice" type="text" />
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <label for="ustensils" id="label-ustensils-list"
+                  >Liste des ustensiles</label
+                >
+                <ul
+                  id="ustensils"
+                  aria-label="Sélectionner vos ustensiles"
+                ></ul>
+              </div>
+            </div>
           </div>
           <h2>1500 recettes</h2>
         </div>
