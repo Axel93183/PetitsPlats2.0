@@ -407,3 +407,45 @@ main {
   font-weight: 400;
   margin: 0;
 }
+
+@media only screen and (max-width: 1279.98px) {
+  #recipes-section {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(150px, 1fr));
+    gap: 60px;
+  }
+}
+
+@media only screen and (max-width: 1023.98px) {
+  main {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  #recipes-section {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+    gap: 50px;
+  }
+}
+
+@media only screen and (max-width: 667px) {
+  main {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+
+  #recipes-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .recipe-card {
+    width: 70%;
+  }
+}
+
+@media only screen and (max-width: 499px) {
+  .recipe-card {
+    width: 100%;
+  }
+}
