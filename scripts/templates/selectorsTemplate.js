@@ -144,3 +144,34 @@ selectElements.forEach((selectElement) => {
     }
   });
 });
+
+/* Display Selector */
+const selectors = document.querySelectorAll(".selector");
+
+selectors.forEach((selector) => {
+  const chevronIconSelector = selector.querySelector("i");
+  const searchingComponent = selector.querySelector(".searching-component");
+
+  function displaySelector() {
+    if (
+      searchingComponent.style.display === "none" ||
+      searchingComponent.style.display === ""
+    ) {
+      searchingComponent.style.display = "block";
+      chevronIconSelector.classList.remove("fa-chevron-down");
+      chevronIconSelector.classList.add("fa-chevron-up");
+    } else {
+      searchingComponent.style.display = "none";
+      chevronIconSelector.classList.remove("fa-chevron-up");
+      chevronIconSelector.classList.add("fa-chevron-down");
+    }
+  }
+
+  chevronIconSelector.addEventListener("click", displaySelector);
+  chevronIconSelector.addEventListener("keypress", (e) => {
+    if (e.key !== "Enter") {
+      return;
+    }
+    displaySelector(e);
+  });
+});

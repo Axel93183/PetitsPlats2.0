@@ -29,6 +29,7 @@
     <script src="scripts/models/recipe.js" defer></script>
     <script src="scripts/templates/recipesTemplate.js" defer></script>
     <script src="scripts/templates/selectorsTemplate.js" defer></script>
+    <script src="scripts/utils/selectorComponent.js" defer></script>
     <script src="scripts/index.js" defer></script>
 
     <title>Les Petits Plats</title>
@@ -59,7 +60,7 @@
           />
           <span id="clearIcon" class="clear-icon">X</span>
           <button class="btnSearch">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-magnifying-glass" role="button"></i>
           </button>
         </div>
       </div>
@@ -71,7 +72,11 @@
             <div class="selector">
               <div class="label-selector">
                 <label for="ingredients-choice">Ingrédients</label>
-                <i class="fa-solid fa-chevron-down" tabindex="0"></i>
+                <i
+                  class="fa-solid fa-chevron-down"
+                  role="button"
+                  tabindex="0"
+                ></i>
               </div>
               <div class="searching-component">
                 <div class="input-search">
@@ -91,7 +96,11 @@
             <div class="selector">
               <div class="label-selector">
                 <label for="appliances-choice">Appareils</label>
-                <i class="fa-solid fa-chevron-down" tabindex="0"></i>
+                <i
+                  class="fa-solid fa-chevron-down"
+                  role="button"
+                  tabindex="0"
+                ></i>
               </div>
               <div class="searching-component">
                 <div class="input-search">
@@ -110,7 +119,11 @@
             <div class="selector">
               <div class="label-selector">
                 <label for="ustensils-choice">Ustensiles</label>
-                <i class="fa-solid fa-chevron-down" tabindex="0"></i>
+                <i
+                  class="fa-solid fa-chevron-down"
+                  role="button"
+                  tabindex="0"
+                ></i>
               </div>
               <div class="searching-component">
                 <div class="input-search">
