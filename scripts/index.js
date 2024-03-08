@@ -1,19 +1,19 @@
 function main() {
   // Input Field and Clear Field
-  const inputField = document.getElementById("inputField");
+  const mainSearchInput = document.getElementById("mainSearchInput");
   const clearIcon = document.getElementById("clearIcon");
 
-  inputField.addEventListener("input", function () {
-    if (inputField.value.trim() !== "") {
-      inputField.classList.add("has-text");
+  mainSearchInput.addEventListener("input", function () {
+    if (mainSearchInput.value.trim() !== "") {
+      mainSearchInput.classList.add("has-text");
     } else {
-      inputField.classList.remove("has-text");
+      mainSearchInput.classList.remove("has-text");
     }
   });
 
   clearIcon.addEventListener("click", function () {
-    inputField.value = "";
-    inputField.classList.remove("has-text");
+    mainSearchInput.value = "";
+    mainSearchInput.classList.remove("has-text");
   });
 
   // Initializing Recipe Objects from Recipe Data

@@ -29,7 +29,7 @@
     <script src="scripts/models/recipe.js" defer></script>
     <script src="scripts/templates/recipesTemplate.js" defer></script>
     <script src="scripts/templates/selectorsTemplate.js" defer></script>
-    <script src="scripts/utils/selectorComponent.js" defer></script>
+    <script src="scripts/algorithm/mainSearchRecipes.js" defer></script>
     <script src="scripts/index.js" defer></script>
 
     <title>Les Petits Plats</title>
@@ -52,14 +52,14 @@
           DU QUOTIDIEN, SIMPLES ET DÉLICIEUSES
         </p>
         <div class="search-bar">
-          <label for="inputField"> Recherche </label>
+          <label for="mainSearchInput"> Recherche </label>
           <input
-            id="inputField"
+            id="mainSearchInput"
             type="text"
             placeholder="Rechercher une recette, un ingrédients, ..."
           />
           <span id="clearIcon" class="clear-icon">X</span>
-          <button class="btnSearch">
+          <button id="btnSearch" class="btnSearch" type="submit">
             <i class="fa-solid fa-magnifying-glass" role="button"></i>
           </button>
         </div>
