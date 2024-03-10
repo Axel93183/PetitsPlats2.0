@@ -3,7 +3,7 @@ const mainSearchInput = document.getElementById("mainSearchInput");
 const searchResultsDiv = document.getElementById("recipes-section");
 const btnSearch = document.getElementById("btnSearch");
 
-// Search Function
+// Main Search Function
 function searchRecipes(query) {
   const results = [];
 
@@ -49,6 +49,7 @@ function displayResults(results) {
     searchResultsDiv.style.display = "flex";
     searchResultsDiv.textContent = `Aucune recette ne contient "${query}". Vous pouvez rechercher "tarte aux pommes", "poisson", etc...`;
   } else {
+    searchResultsDiv.style.display = "grid";
     results.forEach((result) => {
       const recipeCardDom = recipesTemplate(result).getRecipeCardDom();
       searchResultsDiv.appendChild(recipeCardDom);

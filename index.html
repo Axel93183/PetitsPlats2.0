@@ -29,7 +29,8 @@
     <script src="scripts/models/recipe.js" defer></script>
     <script src="scripts/templates/recipesTemplate.js" defer></script>
     <script src="scripts/templates/selectorsTemplate.js" defer></script>
-    <script src="scripts/algorithm/mainSearchRecipes.js" defer></script>
+    <script src="scripts/utils/mainSearchRecipes.js" defer></script>
+    <script src="scripts/utils/advancedSearchRecipes.js" defer></script>
     <script src="scripts/index.js" defer></script>
 
     <title>Les Petits Plats</title>
@@ -80,7 +81,11 @@
               </div>
               <div class="searching-component">
                 <div class="input-search">
-                  <input id="ingredients-choice" type="text" />
+                  <input
+                    class="tag-choice"
+                    id="ingredients-choice"
+                    type="text"
+                  />
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <label for="ingredients" id="label-ingredients-list"
@@ -104,7 +109,11 @@
               </div>
               <div class="searching-component">
                 <div class="input-search">
-                  <input id="appliances-choice" type="text" />
+                  <input
+                    class="tag-choice"
+                    id="appliances-choice"
+                    type="text"
+                  />
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <label for="appliance" id="label-appliances-list"
@@ -127,7 +136,7 @@
               </div>
               <div class="searching-component">
                 <div class="input-search">
-                  <input id="ustensils-choice" type="text" />
+                  <input class="tag-choice" id="ustensils-choice" type="text" />
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <label for="ustensils" id="label-ustensils-list"

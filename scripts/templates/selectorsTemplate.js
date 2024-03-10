@@ -80,7 +80,6 @@ recipesElements.forEach((recipe) => {
       ustensil.charAt(0).toUpperCase() + ustensil.slice(1);
 
     const ustensilToSelect = document.createElement("li");
-    ustensilToSelect.value = capitalizedUstensil;
     ustensilToSelect.textContent = capitalizedUstensil;
 
     const existingOptions = ustensilsSelector.querySelectorAll("li");
@@ -105,9 +104,9 @@ const searchDiv = document.getElementById("search-div");
 const searchSelectorsDiv = document.querySelector(".search-selectors");
 const searchTagsDiv = document.getElementById("search-tags");
 
-const selectElements = searchSelectorsDiv.querySelectorAll("ul");
+const SelectElementsUL = searchSelectorsDiv.querySelectorAll("ul");
 
-selectElements.forEach((selectElement) => {
+SelectElementsUL.forEach((selectElement) => {
   selectElement.addEventListener("click", function (event) {
     const selectedOption = event.target.textContent;
 
