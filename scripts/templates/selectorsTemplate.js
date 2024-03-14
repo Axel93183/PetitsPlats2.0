@@ -17,36 +17,76 @@ const recipesElements = recipes.map((recipeData) => {
 });
 
 /* Ingredient Selector*/
-recipesElements.forEach((recipe) => {
-  const ingredients = recipe.ingredients;
-  ingredients.forEach((ingredientsData) => {
-    const ingredient = new Ingredient(
-      ingredientsData.ingredient,
-      ingredientsData.quantity,
-      ingredientsData.unit
-    );
 
-    const capitalizedIngredient =
-      ingredient.ingredient.charAt(0).toUpperCase() +
-      ingredient.ingredient.slice(1).toLowerCase();
-
-    const ingredientToSelect = document.createElement("li");
-    ingredientToSelect.textContent = capitalizedIngredient;
-    const existingOptions = ingredientsSelector.querySelectorAll("li");
-    let optionExists = false;
-
-    existingOptions.forEach((option) => {
-      if (option.textContent === capitalizedIngredient) {
-        optionExists = true;
-        return;
-      }
+// Fonction pour récupérer tous les ingrédients des recettes sans doublons
+function getAllIngredients() {
+  // Crée un ensemble pour stocker tous les ingrédients sans doublons
+  const allIngredients = new Set();
+  // Parcourt chaque recette
+  recipesElements.forEach((recipe) => {
+    // Parcourt chaque ingrédient de la recette
+    recipe.ingredients.forEach((ingredientData) => {
+      // Ajoute l'ingrédient à l'ensemble
+      allIngredients.add(ingredientData.ingredient);
     });
+  });
+  // Retourne l'ensemble de tous les ingrédients
+  return allIngredients;
+}
 
-    if (!optionExists) {
-      ingredientsSelector.appendChild(ingredientToSelect);
+// Fonction pour filtrer les ingrédients en fonction du terme de recherche
+function filterIngredients(searchTerm, allIngredients) {
+  // Crée un ensemble pour stocker les ingrédients filtrés
+  const filteredIngredients = new Set();
+  // Parcourt tous les ingrédients
+  allIngredients.forEach((ingredient) => {
+    // Vérifie si l'ingrédient contient le terme de recherche (en ignorant la casse)
+    if (ingredient.toLowerCase().includes(searchTerm.toLowerCase())) {
+      // Ajoute l'ingrédient filtré à l'ensemble
+      filteredIngredients.add(ingredient);
     }
   });
-});
+  // Retourne l'ensemble des ingrédients filtrés
+  return filteredIngredients;
+}
+
+// Fonction pour mettre à jour la liste des ingrédients dans le DOM
+function updateIngredientList(ingredients) {
+  // Vide le contenu actuel de l'élément HTML
+  ingredientsSelector.innerHTML = "";
+  // Parcourt tous les ingrédients à afficher
+  ingredients.forEach((ingredient) => {
+    // Met la première lettre de l'ingrédient en majuscule et le reste en minuscules
+    const capitalizedIngredient =
+      ingredient.charAt(0).toUpperCase() + ingredient.slice(1).toLowerCase();
+    // Crée un élément de liste HTML pour l'ingrédient
+    const ingredientToSelect = document.createElement("li");
+    // Définit le texte de l'élément de liste comme l'ingrédient formatté
+    ingredientToSelect.textContent = capitalizedIngredient;
+    // Ajoute l'élément de liste à l'élément HTML parent
+    ingredientsSelector.appendChild(ingredientToSelect);
+  });
+}
+// Sélectionne l'élément input de recherche
+const searchInput = document.getElementById("ingredients-choice");
+
+// Fonction pour gérer l'événement de saisie dans l'input de recherche
+function handleSearchInput() {
+  // Récupère le terme de recherche entré par l'utilisateur
+  const searchTerm = searchInput.value;
+  // Obtient tous les ingrédients disponibles
+  const allIngredients = getAllIngredients();
+  // Filtre les ingrédients en fonction du terme de recherche
+  const filteredIngredients = filterIngredients(searchTerm, allIngredients);
+  // Met à jour la liste des ingrédients affichés dans le DOM
+  updateIngredientList(filteredIngredients);
+}
+
+// Écoute les événements de saisie dans l'input de recherche et appelle handleSearchInput()
+searchInput.addEventListener("input", handleSearchInput);
+
+// Appel initial pour afficher tous les ingrédients sans doublons au chargement de la page
+updateIngredientList(getAllIngredients());
 
 /* Appliance Selector */
 recipesElements.forEach((recipe) => {

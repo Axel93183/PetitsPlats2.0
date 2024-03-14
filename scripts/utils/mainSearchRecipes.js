@@ -1,4 +1,3 @@
-console.log(recipes);
 const mainSearchInput = document.getElementById("mainSearchInput");
 const searchResultsDiv = document.getElementById("recipes-section");
 const btnSearch = document.getElementById("btnSearch");
