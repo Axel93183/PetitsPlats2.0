@@ -25,7 +25,7 @@ function getAllIngredients() {
   const allIngredients = new Set();
   recipesElements.forEach((recipe) => {
     recipe.ingredients.forEach((ingredientData) => {
-      allIngredients.add(ingredientData.ingredient);
+      allIngredients.add(ingredientData.ingredient.toLowerCase());
     });
   });
   return allIngredients;
@@ -71,7 +71,7 @@ function getAllAppliances() {
   const allAppliances = new Set();
   recipesElements.forEach((recipe) => {
     const appliance = recipe.appliance;
-    allAppliances.add(appliance);
+    allAppliances.add(appliance.toLowerCase());
   });
   return allAppliances;
 }
@@ -199,6 +199,8 @@ SelectElementsUL.forEach((selectElement) => {
 
       searchDiv.style.margin = 0;
       searchTagsDiv.style.display = "flex";
+
+      hideSearchComponent(event);
     }
   });
 });
@@ -234,3 +236,14 @@ selectors.forEach((selector) => {
     displaySelector(e);
   });
 });
+
+/* Hide Selector */
+
+function hideSearchComponent(event) {
+  const searchingComponent = event.target.parentNode.parentNode;
+  const chevronIconSelector =
+    event.target.parentNode.parentNode.parentNode.querySelector("i");
+  searchingComponent.style.display = "none";
+  chevronIconSelector.classList.remove("fa-chevron-up");
+  chevronIconSelector.classList.add("fa-chevron-down");
+}

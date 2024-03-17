@@ -3,6 +3,13 @@ function main() {
   const mainSearchInput = document.getElementById("mainSearchInput");
   const clearIcon = document.getElementById("clearIcon");
 
+  function resetMainSearchInput() {
+    mainSearchInput.value = "";
+    mainSearchInput.classList.remove("has-text");
+  }
+
+  window.addEventListener("load", resetMainSearchInput);
+
   mainSearchInput.addEventListener("input", function () {
     if (mainSearchInput.value.trim() !== "") {
       mainSearchInput.classList.add("has-text");
@@ -12,8 +19,7 @@ function main() {
   });
 
   clearIcon.addEventListener("click", function () {
-    mainSearchInput.value = "";
-    mainSearchInput.classList.remove("has-text");
+    resetMainSearchInput();
   });
 
   // Initializing Recipe Objects from Recipe Data
