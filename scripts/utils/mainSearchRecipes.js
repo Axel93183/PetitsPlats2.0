@@ -66,6 +66,9 @@ function displayResults(results) {
       const recipeCardDom = recipesTemplate(result).getRecipeCardDom();
       searchResultsDiv.appendChild(recipeCardDom);
     });
+
+    updateSelectorsList(results);
+
     document.querySelector("#search-div h2").textContent =
       results.length + " recette(s)";
   }

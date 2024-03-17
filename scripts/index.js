@@ -42,6 +42,8 @@ function main() {
     const recipeCardDom = recipesTemplate(recipe).getRecipeCardDom();
     document.getElementById("recipes-section").appendChild(recipeCardDom);
   });
+
+  updateSelectorsList(recipesRecovery);
 }
 
 main();
