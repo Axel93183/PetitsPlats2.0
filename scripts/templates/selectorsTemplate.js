@@ -246,6 +246,7 @@ function hideSearchComponent(event) {
   const chevronIconSelector =
     event.target.parentNode.parentNode.parentNode.querySelector("i");
   searchingComponent.style.display = "none";
+  searchingComponent.querySelector("input").value = "";
   chevronIconSelector.classList.remove("fa-chevron-up");
   chevronIconSelector.classList.add("fa-chevron-down");
 }
