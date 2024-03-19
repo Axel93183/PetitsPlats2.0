@@ -1,6 +1,7 @@
 const mainSearchInput = document.getElementById("mainSearchInput");
 const searchResultsDiv = document.getElementById("recipes-section");
 const btnSearch = document.getElementById("btnSearch");
+const mainDOMTag = document.getElementById("main");
 
 // Initializing Recipe Objects from Recipe Data
 const recipesRecovery = recipes.map((recipeData) => {
@@ -17,62 +18,11 @@ const recipesRecovery = recipes.map((recipeData) => {
   );
 });
 
-// Search by Query Function
-function searchRecipes(query) {
-  const results = [];
-
-  for (let i = 0; i < recipes.length; i++) {
-    const recipe = recipes[i];
-
-    if (
-      recipe.name.toLowerCase().includes(query.toLowerCase()) ||
-      recipe.description.toLowerCase().includes(query.toLowerCase()) ||
-      recipe.ingredients.some((ingredients) =>
-        ingredients.ingredient.toLowerCase().includes(query.toLowerCase())
-      )
-    ) {
-      results.push(recipe);
-    }
-  }
-  return results;
-}
-
-// Search by Query Start Function
-function startSearch() {
-  const query = mainSearchInput.value.trim().toLowerCase();
-
-  if (query.length >= 3) {
-    const searchResults = searchRecipes(query);
-
-    displayRecipesResults(searchResults);
-  } else {
-    searchResultsDiv.textContent =
-      "La recherche doit contenir au moins 3 caractères.";
-    document.querySelector("#search-div h2").textContent = "0 recette";
-  }
-}
-
-mainSearchInput.addEventListener("input", startSearch);
-btnSearch.addEventListener("click", startSearch);
-
-// Initializing Search Tags Array
-let selectedTags = [];
-
-// Search by Tag Function
-function searchByTag(event) {
-  const tag = event.target.textContent.trim().toLowerCase();
-  if (!selectedTags.includes(tag)) {
-    selectedTags.push(tag);
-  }
-
-  const filteredRecipes = filterRecipesByTag();
-
-  displayRecipesResults(filteredRecipes);
-}
-
-function filterRecipesByTag() {
+// Filter Recipes Function
+function filterRecipes() {
   let filteredRecipes = recipesRecovery.slice();
 
+  // Filter by Tag
   for (let i = 0; i < selectedTags.length; i++) {
     const tag = selectedTags[i];
     filteredRecipes = filteredRecipes.filter((recipe) => {
@@ -83,8 +33,25 @@ function filterRecipesByTag() {
         recipe.ustensils.some((ustensils) =>
           ustensils.toLowerCase().includes(tag)
         ) ||
-        recipe.ingredients.some((ingredient) =>
-          ingredient.ingredient.toLowerCase().includes(tag)
+        recipe.ingredients.some((ingredients) =>
+          ingredients.ingredient.toLowerCase().includes(tag)
+        )
+      );
+    });
+  }
+  // Filter by Query
+  const query = mainSearchInput.value.trim().toLowerCase();
+  if (query.length >= 3) {
+    filteredRecipes = filteredRecipes.filter((recipe) => {
+      return (
+        recipe.name.toLowerCase().includes(query) ||
+        recipe.description.toLowerCase().includes(query) ||
+        recipe.appliance.toLowerCase().includes(query) ||
+        recipe.ustensils.some((ustensils) =>
+          ustensils.toLowerCase().includes(query)
+        ) ||
+        recipe.ingredients.some((ingredients) =>
+          ingredients.ingredient.toLowerCase().includes(query)
         )
       );
     });
@@ -93,14 +60,64 @@ function filterRecipesByTag() {
   return filteredRecipes;
 }
 
-function removeTag(tag) {
-  selectedTags = selectedTags.filter((selectedTag) => selectedTag !== tag);
+// Initializing Error Message Display
+let errorMessageDisplayed = false;
 
-  const filteredRecipes = filterRecipesByTag();
+// Search by Query Function
+function searchByQuery() {
+  const query = mainSearchInput.value.trim().toLowerCase();
 
+  if (query.length >= 3) {
+    if (errorMessageDisplayed) {
+      const errorMessage = document.querySelector(".error-message");
+      errorMessage.parentNode.removeChild(errorMessage);
+      errorMessageDisplayed = false;
+    }
+
+    const filteredRecipes = filterRecipes();
+
+    displayRecipesResults(filteredRecipes);
+  } else {
+    const filteredRecipes = filterRecipes();
+
+    displayRecipesResults(filteredRecipes);
+
+    if (!errorMessageDisplayed) {
+      const errorMessage = document.createElement("p");
+      errorMessage.className = "error-message";
+      errorMessage.textContent =
+        "La recherche doit contenir au moins 3 caractères.";
+      mainDOMTag.insertBefore(errorMessage, mainDOMTag.children[1]);
+      errorMessageDisplayed = true;
+    }
+  }
+}
+
+// Search by Query Event
+mainSearchInput.addEventListener("input", searchByQuery);
+btnSearch.addEventListener("click", searchByQuery);
+
+// Initializing Search Tags Array
+let selectedTags = [];
+
+// Search by Tag Function
+function searchByTag(event) {
+  const tag = event.target.textContent.trim().toLowerCase();
+  if (!selectedTags.includes(tag)) {
+    selectedTags.push(tag);
+  }
+  const filteredRecipes = filterRecipes();
   displayRecipesResults(filteredRecipes);
 }
 
+// Remove Tag Function
+function removeTag(tag) {
+  selectedTags = selectedTags.filter((selectedTag) => selectedTag !== tag);
+  const filteredRecipes = filterRecipes();
+  displayRecipesResults(filteredRecipes);
+}
+
+// Display Recipes Results Function
 function displayRecipesResults(recipesResults) {
   searchResultsDiv.innerHTML = "";
   const query = mainSearchInput.value.trim().toLowerCase();

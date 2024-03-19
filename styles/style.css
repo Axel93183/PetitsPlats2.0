@@ -249,12 +249,21 @@ header > .logo-title > img {
   border: none;
 }
 
+.header-title > .search-bar > .btnSearch:hover {
+  background-color: #ffd15b;
+  color: black;
+}
+
 /* Main */
 
 main {
   background: #ededed;
   padding: 21px 100px 200px;
   height: 100%;
+}
+
+main > .error-message {
+  margin-bottom: 40px;
 }
 
 #search-div {
