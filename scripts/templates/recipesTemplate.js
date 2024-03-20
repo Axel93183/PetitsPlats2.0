@@ -41,7 +41,8 @@ function recipesTemplate(recipe) {
 
     const ingredients = recipe.ingredients;
 
-    ingredients.forEach((ingredientData) => {
+    for (let i = 0; i < ingredients.length; i++) {
+      const ingredientData = ingredients[i];
       const ingredientDiv = document.createElement("div");
       ingredientDiv.className = "ingredient";
 
@@ -65,7 +66,7 @@ function recipesTemplate(recipe) {
       ingredientDiv.appendChild(ingredientQuantity);
 
       ingredientsList.appendChild(ingredientDiv);
-    });
+    }
 
     recipeDiv.appendChild(recipeTitle);
     recipeDiv.appendChild(recipeSubtitle);

@@ -25,10 +25,11 @@ function main() {
   });
 
   // Display Recipes Cards
-  recipesRecovery.forEach((recipe) => {
+  for (let i = 0; i < recipesRecovery.length; i++) {
+    const recipe = recipesRecovery[i];
     const recipeCardDom = recipesTemplate(recipe).getRecipeCardDom();
     document.getElementById("recipes-section").appendChild(recipeCardDom);
-  });
+  }
 
   updateSelectorsList(recipesRecovery);
 }
