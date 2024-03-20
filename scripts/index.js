@@ -6,6 +6,8 @@ function main() {
   function resetMainSearchInput() {
     mainSearchInput.value = "";
     mainSearchInput.classList.remove("has-text");
+    const filteredRecipes = filterRecipes();
+    displayRecipesResults(filteredRecipes);
   }
 
   window.addEventListener("load", resetMainSearchInput);
