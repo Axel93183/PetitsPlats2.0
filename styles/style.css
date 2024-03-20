@@ -351,12 +351,6 @@ main > .error-message {
   cursor: pointer;
 }
 
-.search-selectors #label-ingredients-list,
-.search-selectors #label-appliances-list,
-.search-selectors #label-ustensils-list {
-  display: none;
-}
-
 #ingredients,
 #appliances,
 #ustensils {
@@ -419,6 +413,10 @@ main > .error-message {
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
   gap: 90px;
+}
+
+#recipes-section > h2 {
+  display: none;
 }
 
 .recipe-card {
