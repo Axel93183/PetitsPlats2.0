@@ -18,7 +18,7 @@ const recipesRecovery = recipes.map((recipeData) => {
   );
 });
 
-// Fonction générique pour filtrer les recettes par un terme donné
+// Global Filter Function
 function filterRecipesByTerm(recipes, term) {
   const filtered = [];
   recipes.forEach((recipe) => {
