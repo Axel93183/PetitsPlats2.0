@@ -403,6 +403,8 @@ main > .error-message {
   white-space: nowrap;
 }
 
+.search-selectors > .selector > .label-selector:hover,
+.search-selectors > .selector > .label-selector > label:hover,
 #search-tags > .search-tag > span {
   cursor: pointer;
 }

@@ -230,6 +230,9 @@ selectors.forEach((selector) => {
     }
   }
 
+  selector
+    .querySelector(".label-selector")
+    .addEventListener("click", displaySelector);
   chevronIconSelector.addEventListener("click", displaySelector);
   chevronIconSelector.addEventListener("keypress", (e) => {
     if (e.key !== "Enter") {
