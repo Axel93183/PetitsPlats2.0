@@ -174,7 +174,7 @@ SelectElementsUL.forEach((selectElement) => {
     let alreadyExists = false;
 
     searchTagsDiv.querySelectorAll(".search-tag").forEach((tag) => {
-      if (tag.querySelector("p").textContent == selectedOption) {
+      if (tag.querySelector("p").textContent === selectedOption) {
         alreadyExists = true;
       }
     });
