@@ -249,12 +249,21 @@ header > .logo-title > img {
   border: none;
 }
 
+.header-title > .search-bar > .btnSearch:hover {
+  background-color: #ffd15b;
+  color: black;
+}
+
 /* Main */
 
 main {
   background: #ededed;
   padding: 21px 100px 200px;
   height: 100%;
+}
+
+main > .error-message {
+  margin-bottom: 40px;
 }
 
 #search-div {
@@ -297,7 +306,7 @@ main {
   position: absolute;
   background-color: white;
   border-radius: 0 0 11px 11px;
-  z-index: 1;
+  z-index: 10;
   top: calc(100% - 11px);
   left: 0;
   overflow: hidden;
@@ -340,12 +349,6 @@ main {
   right: 27px;
   font-size: 14px;
   cursor: pointer;
-}
-
-.search-selectors #label-ingredients-list,
-.search-selectors #label-appliances-list,
-.search-selectors #label-ustensils-list {
-  display: none;
 }
 
 #ingredients,
@@ -400,6 +403,8 @@ main {
   white-space: nowrap;
 }
 
+.search-selectors > .selector > .label-selector:hover,
+.search-selectors > .selector > .label-selector > label:hover,
 #search-tags > .search-tag > span {
   cursor: pointer;
 }
@@ -410,6 +415,10 @@ main {
   display: grid;
   grid-template-columns: repeat(3, minmax(200px, 1fr));
   gap: 90px;
+}
+
+#recipes-section > h2 {
+  display: none;
 }
 
 .recipe-card {
