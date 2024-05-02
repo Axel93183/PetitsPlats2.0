@@ -21,3 +21,5 @@ class Recipe {
     this.ustensils = ustensils;
   }
 }
+
+export default Recipe;

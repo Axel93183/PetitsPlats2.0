@@ -1,3 +1,5 @@
+import Ingredient from "/scripts/models/ingredient.js";
+
 function recipesTemplate(recipe) {
   function getRecipeCardDom() {
     const article = document.createElement("article");
@@ -80,3 +82,5 @@ function recipesTemplate(recipe) {
   }
   return { recipe, getRecipeCardDom };
 }
+
+export default recipesTemplate;

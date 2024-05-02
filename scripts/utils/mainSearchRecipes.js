@@ -1,10 +1,16 @@
+import recipes from "/scripts/datas/recipes.js";
+import Recipe from "/scripts/models/recipe.js";
+import recipesTemplate from "/scripts/templates/recipesTemplate.js";
+
+import { SelectElementsUL, searchTagsDiv, updateSelectorsList } from "/scripts/templates/selectorsTemplate.js";
+
 const mainSearchInput = document.getElementById("mainSearchInput");
 const searchResultsDiv = document.getElementById("recipes-section");
 const btnSearch = document.getElementById("btnSearch");
 const mainDOMTag = document.getElementById("main");
 
 // Initializing Recipe Objects from Recipe Data
-const recipesRecovery = recipes.map((recipeData) => {
+export const recipesRecovery = recipes.map((recipeData) => {
   return new Recipe(
     recipeData.id,
     recipeData.image,
@@ -76,7 +82,7 @@ function filterRecipesByTag(recipes, tag) {
 }
 
 // Filter Recipes Function
-function filterRecipes() {
+export function filterRecipes() {
   let filteredRecipes = recipesRecovery.slice();
 
   // Filter by Tag
@@ -155,7 +161,7 @@ function removeTag(tag) {
 }
 
 // Display Recipes Results Function
-function displayRecipesResults(recipesResults) {
+export function displayRecipesResults(recipesResults) {
   searchResultsDiv.innerHTML = "";
   const query = mainSearchInput.value.trim().toLowerCase();
 

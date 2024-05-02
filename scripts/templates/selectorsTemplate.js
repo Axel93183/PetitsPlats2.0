@@ -1,3 +1,5 @@
+import Recipe from "/scripts/models/recipe.js";
+
 const ingredientsSelector = document.getElementById("ingredients");
 const ingredientSearchInput = document.getElementById("ingredients-choice");
 const appliancesSelector = document.getElementById("appliances");
@@ -5,7 +7,7 @@ const applianceSearchInput = document.getElementById("appliances-choice");
 const ustensilsSelector = document.getElementById("ustensils");
 const ustensilSearchInput = document.getElementById("ustensils-choice");
 
-function updateSelectorsList(recipes) {
+export function updateSelectorsList(recipes) {
   const recipesElements = recipes.map((recipeData) => {
     return new Recipe(
       recipeData.id,
@@ -161,11 +163,10 @@ function updateSelectorsList(recipes) {
 
 /* Search Tags */
 
-const searchDiv = document.getElementById("search-div");
-const searchSelectorsDiv = document.querySelector(".search-selectors");
-const searchTagsDiv = document.getElementById("search-tags");
-
-const SelectElementsUL = searchSelectorsDiv.querySelectorAll("ul");
+export const searchDiv = document.getElementById("search-div");
+export const searchSelectorsDiv = document.querySelector(".search-selectors");
+export const searchTagsDiv = document.getElementById("search-tags");
+export const SelectElementsUL = searchSelectorsDiv.querySelectorAll("ul");
 
 SelectElementsUL.forEach((selectElement) => {
   selectElement.addEventListener("click", function (event) {
@@ -244,7 +245,7 @@ selectors.forEach((selector) => {
 
 /* Hide Selector */
 
-function hideSearchComponent(event) {
+export function hideSearchComponent(event) {
   const searchingComponent = event.target.parentNode.parentNode;
   const chevronIconSelector =
     event.target.parentNode.parentNode.parentNode.querySelector("i");

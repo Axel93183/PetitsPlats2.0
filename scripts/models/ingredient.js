@@ -5,3 +5,5 @@ class Ingredient {
     this.unit = unit;
   }
 }
+
+export default Ingredient;
