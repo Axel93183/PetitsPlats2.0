@@ -1,9 +1,8 @@
-import recipesTemplate  from "/scripts/templates/recipesTemplate.js";
+import recipesTemplate  from "../scripts/templates/recipesTemplate.js";
 
-import { filterRecipes } from "/scripts/utils/mainSearchRecipes.js";
-import { displayRecipesResults } from "/scripts/utils/mainSearchRecipes.js";
-import { updateSelectorsList } from "/scripts/templates/selectorsTemplate.js";
-import { recipesRecovery } from "/scripts/utils/mainSearchRecipes.js";
+import { filterRecipes } from "../scripts/utils/mainSearchRecipes.js";
+import { displayRecipesResults, recipesRecovery } from "../scripts/utils/mainSearchRecipes.js";
+import { updateSelectorsList } from "../scripts/templates/selectorsTemplate.js";
 
 function main() {
   // Input Field and Clear Field

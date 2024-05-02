@@ -1,4 +1,4 @@
-import Ingredient from "/scripts/models/ingredient.js";
+import Ingredient from "../models/ingredient.js";
 
 function recipesTemplate(recipe) {
   function getRecipeCardDom() {

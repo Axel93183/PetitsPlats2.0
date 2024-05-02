@@ -1,8 +1,8 @@
-import recipes from "/scripts/datas/recipes.js";
-import Recipe from "/scripts/models/recipe.js";
-import recipesTemplate from "/scripts/templates/recipesTemplate.js";
+import recipes from "../datas/recipes.js";
+import Recipe from "../models/recipe.js";
+import recipesTemplate from "../templates/recipesTemplate.js";
 
-import { SelectElementsUL, searchTagsDiv, updateSelectorsList } from "/scripts/templates/selectorsTemplate.js";
+import { SelectElementsUL, searchTagsDiv, updateSelectorsList } from "../templates/selectorsTemplate.js";
 
 const mainSearchInput = document.getElementById("mainSearchInput");
 const searchResultsDiv = document.getElementById("recipes-section");
