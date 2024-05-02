@@ -1,4 +1,4 @@
-import Recipe from "/scripts/models/recipe.js";
+import Recipe from "../models/recipe.js";
 
 const ingredientsSelector = document.getElementById("ingredients");
 const ingredientSearchInput = document.getElementById("ingredients-choice");
